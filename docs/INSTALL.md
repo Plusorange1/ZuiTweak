@@ -34,7 +34,7 @@ Classic LSPosed is archived and will not run on Android 15.
 
 ```bash
 # over ADB
-adb install -r ZuiTweak-1.0.apk
+adb install -r ZuiTweak-1.0.1.apk
 ```
 
 or copy the APK to the tablet and open it.
@@ -44,7 +44,7 @@ signing key and Android will refuse the update:
 
 ```bash
 adb uninstall kr.stonecold.zuitweak
-adb install ZuiTweak-1.0.apk
+adb install ZuiTweak-1.0.1.apk
 ```
 
 ## 4. Enable and scope the module

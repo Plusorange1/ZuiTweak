@@ -4,6 +4,13 @@ All notable changes to this fork. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versions use
 [SemVer](https://semver.org/).
 
+## [1.0.1] — 2026-10-27
+
+### Changed
+
+- New app icon from the ZUi artwork: adaptive background, foreground and
+  monochrome (themed) layers plus legacy density PNGs.
+
 ## [1.0] — ZUI 17 fork
 
 First release of the fork, based on upstream **v3.4.0** (ZUI 15/16).
@@ -44,3 +51,5 @@ First release of the fork, based on upstream **v3.4.0** (ZUI 15/16).
   only resource strings remain.
 
 [1.0]: ../../releases/tag/v1.0
+
+[1.0.1]: ../../releases/tag/v1.0.1
