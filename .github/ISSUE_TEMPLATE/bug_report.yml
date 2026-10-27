@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         Before reporting: reboot after enabling the module, and check
-        [docs/COMPATIBILITY.md](../blob/main/docs/COMPATIBILITY.md).
+        [docs/COMPATIBILITY.md](https://github.com/Plusorange1/ZuiTweak/blob/main/docs/COMPATIBILITY.md).
   - type: input
     id: device
     attributes:
