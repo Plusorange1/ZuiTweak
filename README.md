@@ -6,6 +6,7 @@
 [![Android](https://img.shields.io/badge/Android-12%2B-3DDC84?logo=android&logoColor=white)](#requirements)
 [![ZUI](https://img.shields.io/badge/ZUI-15%20%7C%2016%20%7C%2017-006B5F)](#compatibility)
 [![Release](https://img.shields.io/badge/release-v1.0-006B5F)](../../releases)
+[![Build](https://github.com/Plusorange1/ZuiTweak/actions/workflows/build.yml/badge.svg)](https://github.com/Plusorange1/ZuiTweak/actions/workflows/build.yml)
 
 A Material 3 Xposed module that unlocks hidden features and fixes ZUI annoyances on
 Lenovo Legion Tab devices.
