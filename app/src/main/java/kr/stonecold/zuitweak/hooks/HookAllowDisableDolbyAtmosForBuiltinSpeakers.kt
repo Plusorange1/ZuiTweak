@@ -1,5 +1,6 @@
 package kr.stonecold.zuitweak.hooks
 
+import android.content.Context
 import de.robv.android.xposed.XC_MethodReplacement
 import de.robv.android.xposed.callbacks.XC_InitPackageResources
 import de.robv.android.xposed.callbacks.XC_LoadPackage
@@ -54,6 +55,10 @@ class HookAllowDisableDolbyAtmosForBuiltinSpeakers : HookBaseHandleLoadPackage()
                         hookDolbyAtmosFragmentIsHeadsetConnected(lpparam)
                     }
 
+                    "17.0" -> {
+                        hookDolbyAtmosUtilsIsHeadsetConnected(lpparam)
+                    }
+
                     "15.0" -> {
                         hookDolbyAtmosPreferenceFragmentGetheadsetStatus(lpparam)
                     }
@@ -65,6 +70,16 @@ class HookAllowDisableDolbyAtmosForBuiltinSpeakers : HookBaseHandleLoadPackage()
                 hookQDolbyAtmosDetailViewIsHeadSetConnect(lpparam)
             }
         }
+    }
+
+    private fun hookDolbyAtmosUtilsIsHeadsetConnected(lpparam: XC_LoadPackage.LoadPackageParam) {
+        //17.0용 — DolbyAtmosFragment was removed; the gate now lives in a static util
+        val className = "com.lenovo.settings.sound.dolby.DolbyAtmosUtils"
+        val methodName = "isHeadsetConnected"
+        val parameterTypes = arrayOf<Any>(Context::class.java)
+        val callback = XC_MethodReplacement.returnConstant(true)
+
+        XposedUtil.executeHook(tag, lpparam, className, methodName, *parameterTypes, callback)
     }
 
     private fun hookDolbyAtmosFragmentIsHeadsetConnected(lpparam: XC_LoadPackage.LoadPackageParam) {

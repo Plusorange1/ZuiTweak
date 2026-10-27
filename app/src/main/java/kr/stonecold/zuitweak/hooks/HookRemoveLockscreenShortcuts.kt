@@ -31,7 +31,7 @@ class HookRemoveLockscreenShortcuts : HookBaseHandleLoadPackage() {
         when (lpparam.packageName) {
             "com.android.systemui" -> {
                 when (Constants.deviceVersion) {
-                    "16.0" -> {
+                    "16.0", "17.0" -> {
                         hookKeyguardQuickAffordanceInteractorIsUsingRepository(lpparam)
                         hookKeyguardBottomAreaViewBinderUpdateButton(lpparam)
                     }

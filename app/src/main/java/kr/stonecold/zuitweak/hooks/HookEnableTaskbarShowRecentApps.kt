@@ -27,7 +27,7 @@ class HookEnableTaskbarShowRecentApps : HookBaseHandleLoadPackage() {
         when (lpparam.packageName) {
             "com.android.settings" -> {
                 when (Constants.deviceVersion) {
-                    "16.0" -> {
+                    "16.0", "17.0" -> {
                         hookTaskbarDisplaySettingsControllerIsShowRecentSetting(lpparam)
                     }
 

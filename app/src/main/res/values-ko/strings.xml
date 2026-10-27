@@ -15,7 +15,7 @@
     <string name="korean">Korean (KO)</string>
     <string name="english">Engligh (EN)</string>
     <string name="app_title">ZuiTweak</string>
-    <string name="by_stonecold">by StoneCold</string>
+    <string name="by_stonecold">by Plusorange</string>
     <string name="device_info_description">Xiaoxin Pad Pro 12.7 (TB371FC), Legion Y700 2023 (TB320FC)의 숨겨진 기능을 활성화 하거나 오류를 수정합니다.</string>
     <string name="information">정보</string>
     <string name="device_model">기기 모델:</string>
@@ -106,5 +106,29 @@
     <string name="hook_remove_unused_game_service_icons_desc">게임 서비스에서 보이는 QQ, WeChat, Line, WhatsApp 아이콘을 제거합니다.</string>
     <string name="hook_disable_auto_pen_button_title">펜버튼 자동 활성화 중지</string>
     <string name="hook_disable_auto_pen_button_desc">Bluetooth 연결시 자동으로 활성화 되는 펀버튼 활성화 기능을 중지합니다.</string>
+
+    <string name="russian">러시아어 (RU)</string>
+    <string name="hook_menu_category_other">기타</string>
+    <string name="search_hint">설정 검색</string>
+    <string name="supported">지원됨</string>
+    <string name="label_region">지역</string>
+    <string name="label_root">루트</string>
+    <string name="label_module">모듈</string>
+    <string name="target_prefix">대상: %1$s</string>
+    <string name="reason_device">이 기기에서는 사용할 수 없음</string>
+    <string name="reason_region">이 지역에서는 사용할 수 없음</string>
+    <string name="reason_version">이 ZUI 버전에서는 지원되지 않음</string>
+    <string name="reason_package">필수 패키지가 없음</string>
+    <string name="reason_custom">조건이 충족되지 않음</string>
+    <string name="footer_fork">ZUI 17 fork · v%1$s</string>
+    <string name="no_results">결과 없음</string>
+    <string name="cancel">취소</string>
+    <string name="settings_not_initialized">SharedPrefsUtil이 초기화되지 않았습니다</string>
+    <string name="settings_view_placeholder">설정이 여기에 표시됩니다.</string>
+    <string name="load_settings">설정 불러오기</string>
+    <string name="clear_settings">설정 지우기</string>
+    <string name="settings_cleared">설정이 지워졌습니다.</string>
+    <string name="hook_remove_notification_block_title">알림 아이콘 Block 제거</string>
+    <string name="hook_remove_notification_block_desc">알림 아이콘의 Block을 제거하여 모든 설정이 가능하게 합니다.</string>
 </resources>
 

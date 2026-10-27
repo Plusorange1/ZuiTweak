@@ -32,6 +32,15 @@ class HookEnableOneVisionSmartSplit : HookBaseHandleLoadPackage() {
             )
         }
 
+        "17.0" -> {
+            arrayOf(
+                "com.lenovo.settings.onevision.OneVisionSettingsFragment" to emptyArray<String>(),
+                "com.lenovo.settings.onevision.horizontal.EmbeddingAppFragment" to emptyArray<String>(),
+                "com.lenovo.settings.onevision.horizontal.EmbeddingAppFragment\$RecyclerAdapter" to emptyArray<String>(),
+                "com.lenovo.settings.onevision.horizontal.EmbeddingAppFragment\$SettingsObserver" to emptyArray<String>(),
+            )
+        }
+
         "15.0" -> {
             arrayOf(
                 "com.android.settings.onevision.OneVisionSettingsFragment" to emptyArray<String>(),
@@ -50,7 +59,7 @@ class HookEnableOneVisionSmartSplit : HookBaseHandleLoadPackage() {
         when (lpparam.packageName) {
             "com.android.settings" -> {
                 when (Constants.deviceVersion) {
-                    "16.0" -> {
+                    "16.0", "17.0" -> {
                         hookLenovoUtilsIsPrcVersion(lpparam)
                         hookLenovoUtilsIsRowVersion(lpparam)
                     }

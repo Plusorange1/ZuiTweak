@@ -4,6 +4,7 @@ import android.os.Parcel
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LoadPackage
+import kr.stonecold.zuitweak.R
 import kr.stonecold.zuitweak.common.*
 
 @Suppress("unused")
@@ -13,8 +14,8 @@ class HookRemoveNotificationBlock : HookBaseHandleLoadPackage() {
             category = HookMenuCategory.DEVELOPMENT,
             //title = LanguageUtil.getString(R.string.hook_enable_zui_camera_shutter_option_title),
             //description = LanguageUtil.getString(R.string.hook_enable_zui_camera_shutter_option_desc),
-            title = "알림 아이콘 Block 제거",
-            description = "알림 아이콘의 Block을 제거하여 모든 설정이 가능하게 합니다.",
+            title = LanguageUtil.getString(R.string.hook_remove_notification_block_title),
+            description = LanguageUtil.getString(R.string.hook_remove_notification_block_desc),
             defaultSelected = false,
         )
 

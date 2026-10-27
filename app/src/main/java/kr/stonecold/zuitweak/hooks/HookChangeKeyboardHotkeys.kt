@@ -35,7 +35,7 @@ class HookChangeKeyboardHotkeys : HookBaseHandleLoadPackage() {
         when (lpparam.packageName) {
             "android" -> {
                 when (Constants.deviceVersion) {
-                    "16.0" -> {
+                    "16.0", "17.0" -> {
                         hookKeyboardZuiKeyInputPolicyInterceptKeyBeforeDispatchingBefore(lpparam)
                     }
 

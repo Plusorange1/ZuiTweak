@@ -15,7 +15,7 @@
     <string name="korean">Korean (KO)</string>
     <string name="english">English (EN)</string>
     <string name="app_title">ZuiTweak</string>
-    <string name="by_stonecold">by StoneCold</string>
+    <string name="by_stonecold">by Plusorange</string>
     <string name="device_info_description">Enables hidden features or fixes issues on Xiaoxin Pad Pro 12.7 (TB371FC), Legion Y700 2023 (TB320FC).</string>
     <string name="information">Information</string>
     <string name="device_model">Device Model:</string>
@@ -106,4 +106,28 @@
     <string name="hook_remove_unused_game_service_icons_desc">Removes QQ, WeChat, Line, and WhatsApp icons from the game service.</string>
     <string name="hook_disable_auto_pen_button_title">Disable Automatic Pen Button Activation</string>
     <string name="hook_disable_auto_pen_button_desc">Disables the automatic activation of the pen button when connected via Bluetooth.</string>
+
+    <string name="russian">Russian (RU)</string>
+    <string name="hook_menu_category_other">Other</string>
+    <string name="search_hint">Search tweaks</string>
+    <string name="supported">Supported</string>
+    <string name="label_region">Region</string>
+    <string name="label_root">Root</string>
+    <string name="label_module">Module</string>
+    <string name="target_prefix">Target: %1$s</string>
+    <string name="reason_device">Not available on this device</string>
+    <string name="reason_region">Not available for this region</string>
+    <string name="reason_version">Not supported on this ZUI version</string>
+    <string name="reason_package">Required package is missing</string>
+    <string name="reason_custom">Requirements not met</string>
+    <string name="footer_fork">ZUI 17 fork · v%1$s</string>
+    <string name="no_results">No results</string>
+    <string name="cancel">Cancel</string>
+    <string name="settings_not_initialized">SharedPrefsUtil has not been initialized</string>
+    <string name="settings_view_placeholder">Settings will be displayed here.</string>
+    <string name="load_settings">Load settings</string>
+    <string name="clear_settings">Clear settings</string>
+    <string name="settings_cleared">Settings have been cleared.</string>
+    <string name="hook_remove_notification_block_title">Remove Notification Icon Block</string>
+    <string name="hook_remove_notification_block_desc">Removes the notification icon block so all settings can be changed.</string>
 </resources>

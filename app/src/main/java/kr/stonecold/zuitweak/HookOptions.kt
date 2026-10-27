@@ -16,27 +16,39 @@ object HookOptions {
         )
 
         val categoriesWithOptions = mutableMapOf<String, MutableList<HookOption>>()
+        val otherCategory = context.getString(R.string.hook_menu_category_other)
 
         val hooks = HookManager.getAllHooks()
 
         hooks.filter { hook -> !hook.menuItem.isDebug || BuildConfig.DEBUG }
             .forEach { hook ->
-                val categoryName = categoryOrder.find { it.first == hook.menuItem.category }?.second ?: "기타"
+                val categoryName = categoryOrder.find { it.first == hook.menuItem.category }?.second ?: otherCategory
 
                 val (isEnabled, message) = hook.isEnabledMenu(context)
 
-                val regionInfo = if (hook.hookTargetRegion.isNotEmpty()) "[${hook.hookTargetRegion.joinToString()}]" else ""
-                val deviceInfo = if (hook.hookTargetDevice.isNotEmpty()) "[${hook.hookTargetDevice.joinToString()}]" else ""
-                val targetPackages = (hook.hookTargetPackage + hook.hookTargetPackageOptional).joinToString()
-                var optionDescription = "$regionInfo$deviceInfo${hook.menuItem.description}\nTarget: $targetPackages"
-                if (message.isNotEmpty()) {
-                    optionDescription += "\n${message}"
+                // Short constraint badges, e.g. ROW / TB320FC
+                val badges = buildList {
+                    addAll(hook.hookTargetRegion)
+                    addAll(hook.hookTargetDevice)
+                }
+
+                // Turn the debug string ("PackageMatch: false, …") into a human reason
+                val reason = when {
+                    message.contains("PackageMatch") -> context.getString(R.string.reason_package)
+                    message.contains("DeviceMatch") -> context.getString(R.string.reason_device)
+                    message.contains("RegionMatch") -> context.getString(R.string.reason_region)
+                    message.contains("VersionMatch") -> context.getString(R.string.reason_version)
+                    message.contains("CustomEnabled") -> context.getString(R.string.reason_custom)
+                    else -> null
                 }
 
                 val option = HookOption(
                     key = hook.javaClass.simpleName,
                     title = hook.menuItem.title,
-                    description = optionDescription,
+                    description = hook.menuItem.description,
+                    targets = (hook.hookTargetPackage + hook.hookTargetPackageOptional).joinToString(),
+                    badges = badges,
+                    reason = if (isEnabled) null else reason,
                     isEnabledOption = isEnabled,
                     defaultEnabled = hook.menuItem.defaultSelected,
                 )
@@ -54,6 +66,9 @@ data class HookOption(
     val key: String,
     val title: String,
     val description: String,
+    val targets: String,
+    val badges: List<String>,
+    val reason: String?,
     val isEnabledOption: Boolean,
     val defaultEnabled: Boolean,
 )

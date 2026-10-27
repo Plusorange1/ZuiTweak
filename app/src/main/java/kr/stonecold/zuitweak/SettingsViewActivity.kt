@@ -1,26 +1,44 @@
 package kr.stonecold.zuitweak
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.core.app.ActivityCompat
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kr.stonecold.zuitweak.common.*
 import kr.stonecold.zuitweak.ui.theme.ZuiTweakTheme
+import java.util.Locale
 
 class SettingsViewActivity : ComponentActivity() {
+
+    override fun attachBaseContext(newBase: Context) {
+        val language = try {
+            LanguageUtil.resolveLanguage()
+        } catch (e: Exception) {
+            "en"
+        }
+        val config = android.content.res.Configuration(newBase.resources.configuration)
+        config.setLocale(Locale(language))
+        super.attachBaseContext(newBase.createConfigurationContext(config))
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContent {
             ZuiTweakTheme {
                 Surface(
@@ -38,58 +56,70 @@ class SettingsViewActivity : ComponentActivity() {
         SharedPrefsUtil.init()
 
         if (!SharedPrefsUtil.isInitialized) {
-            stringBuilder.append("SharedPrefsUtil has not been initialized")
+            stringBuilder.append(getString(R.string.settings_not_initialized))
         } else {
             val allEntries = SharedPrefsUtil.getAllOptions()
             for ((key, value) in allEntries) {
-                stringBuilder.append("Key: $key, Value: $value\n")
+                stringBuilder.append("$key = $value\n")
             }
         }
         return stringBuilder.toString()
     }
 
+    @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun CacheSettingsScreen() {
-        var settingsText by remember { mutableStateOf("Settings will be displayed here.") }
+        var settingsText by remember { mutableStateOf(getString(R.string.settings_view_placeholder)) }
         val coroutineScope = rememberCoroutineScope()
 
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = settingsText,
-                fontSize = 16.sp,
-                modifier = Modifier.padding(bottom = 16.dp)
-            )
-            Row(
-                modifier = Modifier.padding(bottom = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+        Scaffold(
+            containerColor = MaterialTheme.colorScheme.background,
+            topBar = {
+                TopAppBar(
+                    title = { Text(stringResource(R.string.settings_view)) },
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.background
+                    )
+                )
+            }
+        ) { padding ->
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(padding)
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                Button(onClick = {
-                    coroutineScope.launch {
-                        settingsText = withContext(Dispatchers.IO) {
-                            getAllSettings()
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Button(onClick = {
+                        coroutineScope.launch {
+                            settingsText = withContext(Dispatchers.IO) { getAllSettings() }
                         }
+                    }) {
+                        Text(stringResource(R.string.load_settings))
                     }
-                }) {
-                    Text(text = "Load Settings")
-                }
-                Button(onClick = {
-                    coroutineScope.launch {
-                        withContext(Dispatchers.IO) {
-                            SharedPrefsUtil.clearAllOptions()
+                    OutlinedButton(onClick = {
+                        coroutineScope.launch {
+                            withContext(Dispatchers.IO) { SharedPrefsUtil.clearAllOptions() }
+                            settingsText = getString(R.string.settings_cleared)
+                            ActivityCompat.finishAffinity(this@SettingsViewActivity)
                         }
-                        settingsText = "Settings have been cleared."
-                        ActivityCompat.finishAffinity(this@SettingsViewActivity) // 모든 액티비티 종료
-                        //System.exit(0) // 프로세스 종료
+                    }) {
+                        Text(stringResource(R.string.clear_settings))
                     }
-                }) {
-                    Text(text = "Clear Settings")
                 }
+
+                Text(
+                    text = settingsText,
+                    style = MaterialTheme.typography.bodySmall,
+                    fontFamily = FontFamily.Monospace,
+                    maxLines = 500,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState())
+                )
             }
         }
     }

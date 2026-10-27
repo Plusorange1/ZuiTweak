@@ -50,7 +50,7 @@ class HookEnableHotspot : HookBaseHandleLoadPackage() {
                 hookWifiEnterpriseRestrictionUtilsIsWifiTetheringAllowed(lpparam)
                 hookWifiTetherPreferenceControllerIsAvailable(lpparam)
                 when (Constants.deviceVersion) {
-                    "16.0" -> {
+                    "16.0", "17.0" -> {
                         hookLenovoUtilsIsSupportTether(lpparam)
                     }
 

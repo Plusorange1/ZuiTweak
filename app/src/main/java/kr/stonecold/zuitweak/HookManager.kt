@@ -56,6 +56,7 @@ object HookManager {
 
         //UNFUCKZUI
         //registerHook(HookDisableTaskbar()) //기본 기능으로 제공
+        registerHook(HookDisableTaskbar()) // ZUI 17 fork: re-enabled
         registerHook(HookChangeNotificationIcon())
         registerHook(HookAllowDisableDolbyAtmosForBuiltinSpeakers())
         registerHook(HookDisableAppSwitchForceStop())

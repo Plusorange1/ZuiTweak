@@ -1,0 +1,95 @@
+name: Bug report
+description: Something does not work or the UI misbehaves
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before reporting: reboot after enabling the module, and check
+        [docs/COMPATIBILITY.md](../blob/main/docs/COMPATIBILITY.md).
+  - type: input
+    id: device
+    attributes:
+      label: Device model
+      description: "`getprop ro.product.model`"
+      placeholder: TB320FC
+    validations:
+      required: true
+  - type: input
+    id: build
+    attributes:
+      label: Build number
+      description: "`getprop ro.build.display.id`"
+      placeholder: TB320FC_ROW_OPEN_USER_Q00031.0_V_ZUI_17.0.313_ST_250808
+    validations:
+      required: true
+  - type: input
+    id: region
+    attributes:
+      label: Region and ZUI version
+      description: "`getprop ro.config.lgsi.region` / `getprop ro.com.zui.version`"
+      placeholder: row / 17.0
+    validations:
+      required: true
+  - type: input
+    id: root
+    attributes:
+      label: Root manager
+      placeholder: Magisk 31.1 (or KernelSU / APatch + version)
+    validations:
+      required: true
+  - type: input
+    id: zygisk
+    attributes:
+      label: Zygisk provider
+      placeholder: Magisk built-in / NeoZygisk 1.x / Zygisk Next 1.5.2
+    validations:
+      required: true
+  - type: input
+    id: xposed
+    attributes:
+      label: Xposed framework
+      placeholder: Vector 2.2 (or LSPosed 1.9.2)
+    validations:
+      required: true
+  - type: input
+    id: module
+    attributes:
+      label: ZuiTweak version
+      placeholder: "1.0"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Enable "Remove lockscreen shortcuts"
+        2. Reboot
+        3. Lock the screen
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs actual
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: "`su -c 'logcat -d | grep -i ZuiTweak'` (and a logcat excerpt around the crash, if any)"
+      render: shell
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I rebooted after enabling the module
+          required: true
+        - label: Only one Zygisk provider is installed
+          required: true
+        - label: I checked docs/COMPATIBILITY.md
+          required: true

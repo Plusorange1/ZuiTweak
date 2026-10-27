@@ -41,7 +41,7 @@ class HookDisableTaskbar : HookBaseHandleLoadPackage() {
 
             "com.android.systemui" -> {
                 when (Constants.deviceVersion) {
-                    "16.0" -> {
+                    "16.0", "17.0" -> {
                         hookUtilitiesIsLargeScreen(lpparam)
                         hookXSystemUtilIsDevicePad(lpparam)
                     }
@@ -51,13 +51,13 @@ class HookDisableTaskbar : HookBaseHandleLoadPackage() {
                         hookXSystemUtilIsPad(lpparam)
                     }
                 }
-                hookNavigationBarInflaterViewOnLikelyDefaultLayoutChange(lpparam)
+                hookNavigationBarInflaterViewInflateLayout(lpparam)
             }
         }
     }
 
     private fun hookDeviceProfileBuilderBuild(lpparam: XC_LoadPackage.LoadPackageParam) {
-        val className = "${lpparam.packageName}.DeviceProfile\$Builder"
+        val className = "com.android.launcher3.DeviceProfile\$Builder"
         val methodName = "build"
         val parameterTypes = arrayOf<Any>(Boolean::class.java)
         val callback = object : XC_MethodHook() {
@@ -186,10 +186,10 @@ class HookDisableTaskbar : HookBaseHandleLoadPackage() {
         XposedUtil.executeHook(tag, lpparam, className, methodName, *parameterTypes, callback)
     }
 
-    private fun hookNavigationBarInflaterViewOnLikelyDefaultLayoutChange(lpparam: XC_LoadPackage.LoadPackageParam) {
+    private fun hookNavigationBarInflaterViewInflateLayout(lpparam: XC_LoadPackage.LoadPackageParam) {
         val className = "com.android.systemui.navigationbar.NavigationBarInflaterView"
-        val methodName = "onLikelyDefaultLayoutChange"
-        val parameterTypes = emptyArray<Any>()
+        val methodName = "inflateLayout"
+        val parameterTypes = arrayOf<Any>(String::class.java)
         val callback = object : XC_MethodHook() {
             override fun beforeHookedMethod(param: MethodHookParam) {
                 try {

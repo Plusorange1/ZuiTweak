@@ -57,7 +57,7 @@ class HookChangeNotificationIcon : HookBaseHandleLoadPackage() {
                 hookStatusBarIconViewSetStaticDrawableColor(lpparam)
                 hookNotificationIconAreaControllerGenerateIconLayoutParams(lpparam)
                 when (Constants.deviceVersion) {
-                    "16.0" -> {
+                    "16.0", "17.0" -> {
                         hookZuiCoreImplClearStatusBarIcon(lpparam)
                         hookNotificationShelfUpdateResources(lpparam)
                         hookNotificationIconContainerInitResources(lpparam)

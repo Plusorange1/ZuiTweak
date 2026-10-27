@@ -1,0 +1,37 @@
+name: Feature request
+description: Suggest a tweak, a port or a UI improvement
+title: "[feat] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the ZUI behaviour you want to change, not just the solution.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device / firmware
+      placeholder: TB320FC · ZUI 17.0.313 ROW
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Class/method names, screenshots, decompiled snippets, links to other modules.
+      render: shell
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: This requires root
+        - label: This requires a companion Magisk module
+        - label: I can test it on my device

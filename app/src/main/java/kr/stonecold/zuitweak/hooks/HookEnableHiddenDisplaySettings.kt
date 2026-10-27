@@ -27,7 +27,7 @@ class HookEnableHiddenDisplaySettings : HookBaseHandleLoadPackage() {
         when (lpparam.packageName) {
             "com.android.settings" -> {
                 when (Constants.deviceVersion) {
-                    "16.0" -> {
+                    "16.0", "17.0" -> {
                         hookAutoColorPreferenceControllerGetAvailabilityStatus(lpparam)
                         hookGameEnhancePreferenceControllerGetAvailabilityStatus(lpparam)
                         hookVideoColorEnhancePreferenceControllerGetAvailabilityStatus(lpparam)
