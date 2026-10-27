@@ -1,66 +1,185 @@
-# ZuiTweak
+# ZuiTweak — ZUI 17 포크
 
-[English Version](README_en.md)
+[English](README.md) · [Русский](README.ru.md) · **한국어**
 
-## 개요
-**ZuiTweak**은 Lenovo Zui 기반 롬에 여러 가지 트윅을 적용하는 Xposed 모듈입니다.
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![Android](https://img.shields.io/badge/Android-12%2B-3DDC84?logo=android&logoColor=white)](#요구-사항)
+[![ZUI](https://img.shields.io/badge/ZUI-15%20%7C%2016%20%7C%2017-006B5F)](#호환성)
+[![Release](https://img.shields.io/badge/release-v1.0-006B5F)](../../releases)
+[![Build](https://github.com/Plusorange1/ZuiTweak/actions/workflows/build.yml/badge.svg)](https://github.com/Plusorange1/ZuiTweak/actions/workflows/build.yml)
 
-## 주요 기능
-- **공통**
-  1. **카메라 무음 설정 활성화:** 기본 카메라의 소리 설정을 통해 무음 동작이 가능하도록 합니다.
-  2. **잠금 화면 바로 가기 제거:** 잠금 화면의 하단 좌우의 바로가기를 제거합니다.
-  3. **Game Service 아이콘 제거:** 게임 서비스의 불필요한 아이콘을 제거합니다.
-  4. **숨겨진 Display 설정 추가:** 비활성화되어 숨겨진 디스플레이 설정에 모든 설정을 추가합니다.
-  5. **작업표시줄 비활성화:** 동작탐색 시 작업 표시줄 표시 기능을 제거합니다. (Unfuck Zui 기능)
-     * 주의: 3버튼 탐색기 버튼이 사라짐
-  6. **알림 아이콘 변경:** 알림 아이콘의 배경을 테마에 맞게 변경합니다. (Unfuck Zui 기능)
-  7. **내장 스피커 Doby Atmos 비활성화:** 내장 스피커에 대한 Dolby Atmos 비활성화가 가능하도록 합니다. (Unfuck Zui 기능)
-  8. **앱 강제 종료 기능 비활성화:** App Switcher에서 제거시 앱이 강제 종료되지 않도록 합니다. (Unfuck Zui 기능)
+Lenovo Legion Tab의 ZUI에서 숨겨진 기능을 열고 불편한 부분을 고치는 Material 3
+Xposed 모듈입니다.
 
-- ** ROW **
-  1. **Multiple Space 기능 활성화:** ROW 기반 롬에서 Multiple Space 기능을 활성화합니다.
-     * 주의: [ZuiTweak-magisk](https://github.com/forumi0721/ZuiTweak-magisk) 설치 필요
-  2. **WLAN 핫스팟 기능 활성화:** WLAN 핫스팟 기능을 활성화합니다.
-  3. **Smart Split 기능 활성화:** Smart Split 기능을 활성화합니다.
-  4. **배터리 전력 소비 경고 활성화:** 배터리 전력 소비 경고 기능을 활성화합니다.
+[forumi0721/ZuiTweak](https://github.com/forumi0721/ZuiTweak)의 포크이며 다음이
+포함되어 있습니다.
 
-- ** PRC **
-  1. **한국어 설정 활성화:** PRC 기반 롬에서 설정 화면에서 한국어 선택이 가능하도록 합니다.
-     * 주의: [ZuiTweak-magisk](https://github.com/forumi0721/ZuiTweak-magisk) 또는 CTS를 통한 한글화 필요
-  2. **런처 온라인 검색 제거:** PRC 기반 롬에서 런처의 Online 검색 기능을 제거하고 PRC 기반으로 전환합니다.
-     * 주의: 좌측 점을 제거하기 위해서는 [Entertainment Space](https://play.google.com/store/search?q=entertainment+space&c=apps&hl=en) 설치 필요
-  3. **DocumentUI 강제 종료 수정:** PRC 기반 롬에서 DocumentsUI에서 마우스 드래그 시 발생하는 강제 종료 오류를 수정합니다.
-  4. **Smart Rotation 기능 활성화:** Smart Rotation 기능을 활성화합니다.
-  5. **Study launcher 비활성화:** Study launcher를 설정화면에서 가립니다.
-  6. **PRC 정보 삭제:** 태블릿 정보 등에 보이는 PRC 정보를 제거합니다.
-  7. **배터리 아이콘 사라짐 수정:** PRC 기반 롬에서 test_mode 활성화 시 사라지는 배터리 아이콘을 표시합니다.
-  8. **Virus Scan 비활성화:** SafeCenter의 Virus Scan 기능을 비활성화 합니다. (Unfuck Zui 기능)
-  9. **Package Installer 변경:** Package Installer를 AOSP 스타일로 변경합니다. (Unfuck Zui 기능)
-  10. **Permission Controller 변경:** Permission Controller를 AOSP 스타일로 변경합니다. (Unfuck Zui 기능)
+- **ZUI 17 (Android 15) 지원** — ZUI 17에서 옮겨진 클래스로 훅을 다시 연결
+  (`com.lenovo.settings.*`, `launcher3.DeviceProfile`, `DolbyAtmosUtils` 등)
+- **러시아어 추가** (영어 / 한국어 / 러시아어)
+- **Material 3 UI** — 상태 카드, 그룹 카드, 검색, 배지, 언어 선택 창
+- **작업 표시줄 토글 재활성화** 및 ZUI 17 대응
 
-- ** TB371FC **
-  1. **키보드 단축키 변경:** PRC 기반 롬에서 fn+E, fn+S, fn+P가 정상 동작하도록 변경합니다.
+<p align="center">
+  <img src="docs/screenshots/ko-top.png" width="380" alt="메인 화면">
+  <img src="docs/screenshots/ko-tweaks.png" width="380" alt="트윅과 사용 가능 여부">
+</p>
 
-## 소스 코드
-소스 코드는 GitHub에서 확인할 수 있습니다: [ZuiTweak 소스 코드](https://github.com/forumi0721/ZuiTweak)
+---
 
-## License
-이 프로젝트는 Apache License v2.0을 따릅니다. 자세한 내용은 [LICENSE](https://github.com/forumi0721/ZuiTweak/blob/main/LICENSE)를 참고하세요.
+## 호환성
 
-## 설치 방법
-1. **LSPosed 설치**
-   - ZuiTweak을 사용하려면 먼저 LSPosed를 설치해야 합니다. (루팅된 기기에서만 가능)
-2. **ZuiTweak 다운로드 및 설치**
-   - [Release 페이지](https://github.com/forumi0721/ZuiTweak/releases)에서 최신 버전을 다운로드하여 설치합니다.
-3. **LSPosed에서 활성화**
-   - LSPosed에서 ZuiTweak 모듈을 활성화합니다.
-4. **ZuiTweak에서 설정**
-   - Launcher에 보이는 ZuiTweak을 실행하여 필요한 기능을 활성화합니다.
+| 기기 | 모델 | ZUI 15 | ZUI 16 | ZUI 17 (Android 15) |
+|---|---|:--:|:--:|:--:|
+| Legion Tab Gen 2 / Y700 2023 | `TB320FC` | ✅ 원본 | ✅ 원본 | ✅ **이 포크** |
+| Xiaoxin Pad Pro 12.7 | `TB371FC` | ✅ 원본 | ✅ 원본 | ⚠️ 미검증 |
 
-## 중요 사항
-- 무음 기능 활성화는 법적 규제를 따르는 범위 내에서 사용해야 합니다.
-- 무수한 오류가 숨겨져 있습니다.
+검증 펌웨어: `TB320FC_ROW_OPEN_USER_Q00031.0_V_ZUI_17.0.313_ST_250808` (ROW, Android 15).
 
-## 문의
-앱 사용 중 문제가 발생하거나 문의사항이 있으면 [Issues 페이지](https://github.com/forumi0721/ZuiTweak/issues)를 통해 알려주세요.
+다른 모델에서는 모듈이 동작하지 않습니다. 일부 트윅은 **ROW**(글로벌) 또는
+**PRC**(중국) 펌웨어 전용이며, 앱에서 사용할 수 없는 항목은 배지와 이유가 표시됩니다.
 
+## 기능
+
+**ZUI 17 ROW** 기준 코드 레벨 지원 상태입니다. 세부 내용은
+[docs/COMPATIBILITY.md](docs/COMPATIBILITY.md)를 참고하세요.
+
+### 공통
+
+| 트윅 | 상태 |
+|---|:--:|
+| 카메라 무음 모드 | ✅ |
+| 잠금 화면 바로 가기 제거 | ✅ |
+| 종료 메시지 제거 | ✅ |
+| 핫스팟 활성화 | ✅ |
+| Wi-Fi Direct 활성화 | ✅ |
+| 키보드 단축키 변경 | ✅ |
+| 키보드 단축키 안내 제거 | ✅ |
+| 숨겨진 디스플레이 설정 확장 | ✅ |
+| 게임 서비스 아이콘 제거 | ✅ |
+| 펜 버튼 자동 활성화 중지 | ✅ |
+
+### ROW (글로벌 펌웨어)
+
+| 트윅 | 상태 |
+|---|:--:|
+| 배터리 소모 경고 | ✅ |
+| Smart Split (One Vision) | ✅ |
+| Multiple Space | ❌ ZUI 17에서 클래스가 제거됨 |
+
+### Unfuck ZUI
+
+| 트윅 | 상태 |
+|---|:--:|
+| 알림 아이콘 변경 | ✅ |
+| 내장 스피커 Dolby Atmos 비활성화 | ✅ |
+| 앱 강제 종료 비활성화 | ✅ |
+| 작업 표시줄 비활성화 | ✅ (이 포크에서 재활성화) |
+| 바이러스 검사 비활성화 | ⚠️ PRC 전용 |
+| AOSP 패키지 설치 프로그램 | ⚠️ PRC 전용 |
+| AOSP 권한 컨트롤러 | ⚠️ PRC 전용 |
+
+### 기기별
+
+| 트윅 | 대상 |
+|---|---|
+| 펜 서비스 활성화 | `TB371FC` |
+
+## 요구 사항
+
+| 구성 요소 | 최소 |
+|---|---|
+| 기기 | `TB320FC` 또는 `TB371FC` |
+| 펌웨어 | ZUI 15 / 16 / 17 (Android 12+) |
+| 루트 | Magisk 27+ (KernelSU/APatch 가능) |
+| Zygisk | Magisk 내장, [NeoZygisk](https://github.com/JingMatrix/NeoZygisk) 또는 [Zygisk Next](https://github.com/Dr-TSNG/ZygiskNext) |
+| Xposed | [Vector](https://github.com/JingMatrix/Vector/releases) **2.x (권장)** 또는 LSPosed 1.9.2 (Android ≤ 14) |
+
+> Android 15에서는 **Vector**를 사용하세요. 기존 LSPosed는 아카이브되었고
+> Android 15를 지원하지 않습니다.
+
+## 설치
+
+1. **루팅** 후 **Zygisk**를 켭니다 (Magisk → 설정 → Zygisk → 재부팅).
+   Zygisk 구현이 여러 개라면 **하나만** 남기세요.
+2. [Vector](https://github.com/JingMatrix/Vector/releases) 릴리스 zip을 Magisk
+   모듈로 설치하고 재부팅합니다.
+3. [Releases](../../releases)에서 `ZuiTweak-*.apk`를 설치합니다.
+   이전 버전이 있으면 먼저 삭제하세요 (서명 키가 다릅니다).
+4. Vector에서 **모듈 → ZuiTweak → 활성화** 후 스코프를 지정합니다.
+
+   ```
+   com.android.settings
+   com.android.systemui
+   com.android.permissioncontroller
+   com.android.packageinstaller
+   com.android.documentsui
+   com.zui.launcher
+   com.zui.desktoplauncher
+   com.zui.camera
+   com.zui.safecenter
+   com.zui.version
+   com.zui.game.service
+   com.lenovo.penservice
+   ```
+
+5. 한 번 **재부팅**합니다 (시스템 프로세스에 훅이 주입되어야 합니다).
+6. ZuiTweak을 열어 필요한 트윅을 켭니다.
+
+자세한 안내: [docs/INSTALL.md](docs/INSTALL.md).
+
+## 사용법
+
+- **언어** — ⋮ → Language → English / 한국어 / Русский. 첫 실행 시 시스템 언어를
+  따르며, 선택은 Xposed 공유 설정에 저장됩니다.
+- **검색** — 제목과 설명으로 트윅을 필터링합니다.
+- **사용할 수 없는 항목**은 흐리게 표시되고 이유(지역, 패키지 없음, 버전)가
+  표시됩니다.
+- **재시작 필요** — SystemUI/런처 훅은 SystemUI 재시작 후 적용되며, 재부팅이
+  가장 확실합니다.
+
+## 빌드
+
+```bash
+git clone https://github.com/Plusorange1/ZuiTweak.git
+cd ZuiTweak
+./gradlew assembleDebug
+# 결과: app/build/outputs/apk/debug/app-debug.apk
+```
+
+JDK 17과 Android SDK 34가 필요합니다. Termux 빌드는
+[docs/BUILD.md](docs/BUILD.md)를 참고하세요. CI는 푸시마다 debug APK를
+빌드합니다.
+
+## 알려진 제한
+
+- **Multiple Space**는 ZUI 17에서 활성화할 수 없습니다. Settings 클래스가
+  제거되어 문자열만 남아 있습니다.
+- 일부 훅은 Lenovo 내부 클래스에 의존하므로 향후 ZUI 업데이트에서 다시 바뀔 수
+  있습니다. 오류는 훅별로 처리되어 시스템이 종료되지는 않습니다.
+- 릴리스 APK는 원본과 다른 키로 서명되어 업데이트 시 재설치가 필요합니다.
+
+## 문제 해결
+
+| 증상 | 해결 |
+|---|---|
+| Vector에 모듈이 보이지 않음 | Zygisk가 꺼져 있거나 두 개가 설치됨 |
+| 토글이 아무 효과 없음 | 프로세스가 재시작되지 않음 — SystemUI 재시작 또는 재부팅 |
+| 한 항목만 동작하지 않음 | 해당 지역/버전에서 사용할 수 없음 — 배지 확인 |
+| 훅 활성화 후 부팅 반복 | Vector에서 모듈 비활성화 후 재부팅 |
+
+## 크레딧
+
+- **[forumi0721](https://github.com/forumi0721)** — 원본 ZuiTweak (ZUI 15/16),
+  이 포크는 v3.4.0 기반입니다.
+- **StoneCold** — 원본 모듈 개발자.
+- **Plusorange** — ZUI 17 포팅, 러시아어 번역, Material 3 UI.
+- [Vector](https://github.com/JingMatrix/Vector) / [LSPosed](https://github.com/LSPosed/LSPosed),
+  [LSPlant](https://github.com/JingMatrix/LSPlant) — 후킹 프레임워크.
+
+## 라이선스
+
+[Apache License 2.0](LICENSE). 원본의 저작권 및 라이선스 고지를 유지합니다.
+
+> 루팅과 시스템 수정은 사용자 책임입니다. 보증은 없으며, 플래시 전에
+> `boot`/`vendor_boot` 백업을 보관하세요.

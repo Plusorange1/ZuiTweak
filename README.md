@@ -20,8 +20,8 @@ This is a fork of [forumi0721/ZuiTweak](https://github.com/forumi0721/ZuiTweak) 
 - **Taskbar toggle re-enabled** and updated for ZUI 17
 
 <p align="center">
-  <img src="docs/screenshots/ru-top.png" width="380" alt="Main screen">
-  <img src="docs/screenshots/ru-unfuck.png" width="380" alt="Tweaks">
+  <img src="docs/screenshots/en-top.png" width="380" alt="Main screen">
+  <img src="docs/screenshots/en-tweaks.png" width="380" alt="Tweaks and availability badges">
 </p>
 
 ---

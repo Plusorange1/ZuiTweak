@@ -22,7 +22,7 @@ Xposed-модуль с интерфейсом Material 3, который отк�
 
 <p align="center">
   <img src="docs/screenshots/ru-top.png" width="380" alt="Главный экран">
-  <img src="docs/screenshots/ru-unfuck.png" width="380" alt="Твики">
+  <img src="docs/screenshots/ru-tweaks.png" width="380" alt="Твики и пометки о доступности">
 </p>
 
 ---
