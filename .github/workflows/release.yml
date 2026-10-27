@@ -24,9 +24,24 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+        run: |
+          SDK_ROOT="${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}"
+          echo "ANDROID_HOME=$SDK_ROOT" >> "$GITHUB_ENV"
+          echo "ANDROID_SDK_ROOT=$SDK_ROOT" >> "$GITHUB_ENV"
 
-      - name: Build debug APK
+          SDKM="$(ls "$SDK_ROOT"/cmdline-tools/*/bin/sdkmanager 2>/dev/null | head -1)"
+          if [ -z "$SDKM" ]; then
+            curl -sL -o /tmp/cmdline.zip https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
+            mkdir -p "$SDK_ROOT/cmdline-tools"
+            unzip -q /tmp/cmdline.zip -d "$SDK_ROOT/cmdline-tools"
+            mv "$SDK_ROOT/cmdline-tools/cmdline-tools" "$SDK_ROOT/cmdline-tools/latest" 2>/dev/null || true
+            SDKM="$SDK_ROOT/cmdline-tools/latest/bin/sdkmanager"
+          fi
+
+          yes | "$SDKM" --sdk_root="$SDK_ROOT" --licenses >/dev/null 2>&1 || true
+          "$SDKM" --sdk_root="$SDK_ROOT" "platforms;android-34" "build-tools;34.0.0"
+
+      - name: Assemble debug
         run: ./gradlew --no-daemon assembleDebug
 
       - name: Rename artifact
