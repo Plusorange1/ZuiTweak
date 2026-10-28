@@ -93,15 +93,40 @@ class HookHideImeNavBar : HookBaseHandleLoadPackage() {
             Log.i(TAG, "navigation row not found")
             return
         }
-        if (frame.visibility != View.GONE) {
-            Log.i(TAG, "hiding ${frame.javaClass.name}")
-            frame.visibility = View.GONE
-            frame.layoutParams?.let { params ->
-                params.height = 0
-                frame.layoutParams = params
+        val parent = frame.parent as? ViewGroup ?: return
+        val rowHeight = frame.height
+
+        // The decor stacks: keyboard content, a 120 px spacer View, and NavigationBarFrame.
+        // Hide the frame and any sibling that occupies the same bottom slot.
+        var keyboard: View? = null
+        for (i in 0 until parent.childCount) {
+            val child = parent.getChildAt(i)
+            val sameSlot = child.top == frame.top && child.height == rowHeight
+            if (child === frame || sameSlot) {
+                if (child.visibility != View.GONE) {
+                    child.visibility = View.GONE
+                    child.layoutParams?.let { params ->
+                        params.height = 0
+                        child.layoutParams = params
+                    }
+                }
+            } else if (child.visibility == View.VISIBLE && child.height > 0) {
+                if (keyboard == null || child.height > keyboard.height) keyboard = child
             }
-            frame.requestLayout()
         }
+
+        // Give the freed strip to the keyboard instead of leaving it empty.
+        keyboard?.let { view ->
+            if (view.height != parent.height) {
+                view.layoutParams?.let { params ->
+                    params.height = parent.height
+                    view.layoutParams = params
+                }
+                view.requestLayout()
+                Log.i(TAG, "keyboard stretched to ${parent.height} (row $rowHeight)")
+            }
+        }
+        parent.requestLayout()
     }
 
     /**

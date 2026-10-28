@@ -4,6 +4,14 @@ All notable changes to this fork. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versions use
 [SemVer](https://semver.org/).
 
+## [1.1.1] — 2026-10-28
+
+### Fixed
+
+- **Hide buttons under keyboard**: the 120 px strip left behind by the removed IME
+  navigation row is now given to the keyboard instead of staying empty. The keyboard
+  content is stretched to the full IME window height, so no dead band remains.
+
 ## [1.1.0] — 2026-10-28
 
 ### Added
@@ -66,3 +74,5 @@ First release of the fork, based on upstream **v3.4.0** (ZUI 15/16).
 [1.0.1]: ../../releases/tag/v1.0.1
 
 [1.1.0]: ../../releases/tag/v1.1.0
+
+[1.1.1]: ../../releases/tag/v1.1.1
