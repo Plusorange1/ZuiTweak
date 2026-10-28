@@ -133,4 +133,8 @@
     <string name="hook_remove_notification_block_desc">Убирает блокировку значков уведомлений, разрешая все настройки.</string>
     <string name="hook_hide_ime_nav_bar_title">Скрыть кнопки под клавиатурой</string>
     <string name="hook_hide_ime_nav_bar_desc">Скрывает кнопки «скрыть клавиатуру» и «способ ввода» под Gboard.</string>
+    <string name="hook_double_tap_sleep_title">Двойное нажатие для сна</string>
+    <string name="hook_double_tap_sleep_desc">Выключает экран при двойном нажатии на пустой области рабочего стола.</string>
+    <string name="hook_statusbar_brightness_title">Яркость жестом в строке состояния</string>
+    <string name="hook_statusbar_brightness_desc">Проведите по строке состояния по горизонтали, чтобы изменить яркость экрана.</string>
 </resources>

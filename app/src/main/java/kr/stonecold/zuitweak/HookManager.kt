@@ -60,6 +60,8 @@ object HookManager {
         registerHook(HookChangeNotificationIcon())
         registerHook(HookAllowDisableDolbyAtmosForBuiltinSpeakers())
         registerHook(HookHideImeNavBar())
+        registerHook(HookDoubleTapSleep())
+        registerHook(HookStatusBarBrightness())
         registerHook(HookDisableAppSwitchForceStop())
         registerHook(HookDisableVirusScan())
         registerHook(HookChangePackageInstaller())

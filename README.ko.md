@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Android](https://img.shields.io/badge/Android-12%2B-3DDC84?logo=android&logoColor=white)](#요구-사항)
 [![ZUI](https://img.shields.io/badge/ZUI-15%20%7C%2016%20%7C%2017-006B5F)](#호환성)
-[![Release](https://img.shields.io/badge/release-v1.1.1-006B5F)](../../releases)
+[![Release](https://img.shields.io/badge/release-v1.2.0-006B5F)](../../releases)
 [![Build](https://github.com/Plusorange1/ZuiTweak/actions/workflows/build.yml/badge.svg)](https://github.com/Plusorange1/ZuiTweak/actions/workflows/build.yml)
 
 Lenovo Legion Tab의 ZUI에서 숨겨진 기능을 열고 불편한 부분을 고치는 Material 3
@@ -74,6 +74,8 @@ Xposed 모듈입니다.
 | 알림 아이콘 변경 | ✅ |
 | 내장 스피커 Dolby Atmos 비활성화 | ✅ |
 | 키보드 하단 버튼 숨기기 (Gboard) | ✅ |
+| 홈 화면 더블 탭으로 화면 끄기 | ✅ |
+| 상태 표시줄 밝기 제스처 | ✅ |
 | 앱 강제 종료 비활성화 | ✅ |
 | 작업 표시줄 비활성화 | ✅ (이 포크에서 재활성화) |
 | 바이러스 검사 비활성화 | ⚠️ PRC 전용 |

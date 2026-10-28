@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Android](https://img.shields.io/badge/Android-12%2B-3DDC84?logo=android&logoColor=white)](#требования)
 [![ZUI](https://img.shields.io/badge/ZUI-15%20%7C%2016%20%7C%2017-006B5F)](#совместимость)
-[![Release](https://img.shields.io/badge/release-v1.1.1-006B5F)](../../releases)
+[![Release](https://img.shields.io/badge/release-v1.2.0-006B5F)](../../releases)
 [![Build](https://github.com/Plusorange1/ZuiTweak/actions/workflows/build.yml/badge.svg)](https://github.com/Plusorange1/ZuiTweak/actions/workflows/build.yml)
 
 Xposed-модуль с интерфейсом Material 3, который открывает скрытые функции и исправляет
@@ -89,6 +89,8 @@ Xposed-модуль с интерфейсом Material 3, который отк�
 | Изменить значок уведомлений | ✅ |
 | Разрешить отключение Dolby Atmos для динамиков | ✅ |
 | Скрыть кнопки под клавиатурой (Gboard) | ✅ |
+| Двойное нажатие для сна (рабочий стол) | ✅ |
+| Яркость жестом в строке состояния | ✅ |
 | Отключить принудительную остановку в недавних | ✅ |
 | Отключить панель задач | ✅ (включено в этом форке) |
 | Отключить проверку на вирусы | ⚠️ только PRC |

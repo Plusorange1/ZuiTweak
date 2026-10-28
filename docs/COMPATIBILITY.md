@@ -40,6 +40,8 @@ Android 15 · vendor patch 2025-02-05 · region ROW
 | Disable app force-stop | Unfuck | — | ✅ | ✅ | ✅ | |
 | Disable taskbar | Unfuck | — | ✅ | ✅ | ✅ | re-enabled, `inflateLayout` |
 | Hide keyboard/IME buttons | Unfuck | Gboard | ✅ | ✅ | ✅ | IME nav row; scope must include `com.google.android.inputmethod.latin` |
+| Double tap to sleep | Unfuck | launcher | ✅ | ✅ | ✅ | drives `Settings.Secure.double_tap_to_lock_screen` |
+| Status bar brightness | Unfuck | — | ✅ | ✅ | ✅ | horizontal slide on the status bar |
 | Disable virus scan | Unfuck | PRC | ✅ | ✅ | ⚠️ | `com.zui.safecenter` absent on ROW |
 | AOSP package installer | Unfuck | PRC | ✅ | ✅ | ⚠️ | ROW uses `com.google.android.packageinstaller` |
 | AOSP permission controller | Unfuck | PRC | ✅ | ✅ | ⚠️ | ROW uses `com.google.android.permissioncontroller` |

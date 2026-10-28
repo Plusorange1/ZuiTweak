@@ -39,6 +39,7 @@ import androidx.core.content.ContextCompat.getString
 import com.topjohnwu.superuser.Shell
 import kotlinx.coroutines.launch
 import kr.stonecold.zuitweak.common.*
+import kr.stonecold.zuitweak.hooks.HookDoubleTapSleep
 import kr.stonecold.zuitweak.ui.theme.ZuiTweakTheme
 import java.util.Locale
 
@@ -537,6 +538,11 @@ fun OptionRow(context: Context, option: HookOption) {
                     checked = it
                     if (SharedPrefsUtil.isInitialized) {
                         SharedPrefsUtil.setOptionValue(option.key, it)
+                        if (option.key == HookDoubleTapSleep.KEY) {
+                            Shell.cmd(
+                                "settings put secure ${HookDoubleTapSleep.SETTING} ${if (it) 1 else 0}"
+                            ).submit()
+                        }
                     } else {
                         Toast.makeText(context, getString(context, R.string.settings_changed), Toast.LENGTH_LONG).show()
                     }

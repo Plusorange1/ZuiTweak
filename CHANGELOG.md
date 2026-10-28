@@ -4,6 +4,18 @@ All notable changes to this fork. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versions use
 [SemVer](https://semver.org/).
 
+## [1.2.0] — 2026-10-28
+
+### Added
+
+- **Double tap to sleep** — double tap an empty area of the home screen to turn the screen
+  off. ZUI's launcher already implements the gesture (`Utilities.doubleTapLockScreen`); the
+  toggle drives the hidden `Settings.Secure.double_tap_to_lock_screen` value and re-applies
+  it when the launcher starts.
+- **Status bar brightness gesture** — slide horizontally along the status bar to change
+  screen brightness. SystemUI writes `SCREEN_BRIGHTNESS` and switches brightness mode to
+  manual on the first movement.
+
 ## [1.1.1] — 2026-10-28
 
 ### Fixed
@@ -76,3 +88,5 @@ First release of the fork, based on upstream **v3.4.0** (ZUI 15/16).
 [1.1.0]: ../../releases/tag/v1.1.0
 
 [1.1.1]: ../../releases/tag/v1.1.1
+
+[1.2.0]: ../../releases/tag/v1.2.0

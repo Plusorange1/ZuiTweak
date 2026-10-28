@@ -132,5 +132,9 @@
     <string name="hook_remove_notification_block_desc">알림 아이콘의 Block을 제거하여 모든 설정이 가능하게 합니다.</string>
     <string name="hook_hide_ime_nav_bar_title">키보드 하단 버튼 숨기기</string>
     <string name="hook_hide_ime_nav_bar_desc">Gboard 하단의 키보드 숨기기·입력 방식 버튼을 숨깁니다.</string>
+    <string name="hook_double_tap_sleep_title">더블 탭으로 화면 끄기</string>
+    <string name="hook_double_tap_sleep_desc">홈 화면의 빈 영역을 두 번 탭하면 화면이 꺼집니다.</string>
+    <string name="hook_statusbar_brightness_title">상태 표시줄 밝기 제스처</string>
+    <string name="hook_statusbar_brightness_desc">상태 표시줄을 가로로 밀어 화면 밝기를 조절합니다.</string>
 </resources>
 
