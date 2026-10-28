@@ -131,4 +131,6 @@
     <string name="settings_cleared">Настройки очищены.</string>
     <string name="hook_remove_notification_block_title">Убрать блокировку значков уведомлений</string>
     <string name="hook_remove_notification_block_desc">Убирает блокировку значков уведомлений, разрешая все настройки.</string>
+    <string name="hook_hide_ime_nav_bar_title">Скрыть кнопки под клавиатурой</string>
+    <string name="hook_hide_ime_nav_bar_desc">Скрывает кнопки «скрыть клавиатуру» и «способ ввода» под Gboard.</string>
 </resources>

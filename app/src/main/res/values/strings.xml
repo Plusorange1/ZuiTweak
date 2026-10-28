@@ -130,4 +130,6 @@
     <string name="settings_cleared">Settings have been cleared.</string>
     <string name="hook_remove_notification_block_title">Remove Notification Icon Block</string>
     <string name="hook_remove_notification_block_desc">Removes the notification icon block so all settings can be changed.</string>
+    <string name="hook_hide_ime_nav_bar_title">Hide buttons under keyboard</string>
+    <string name="hook_hide_ime_nav_bar_desc">Hides the hide-keyboard and input-method buttons at the bottom of Gboard.</string>
 </resources>

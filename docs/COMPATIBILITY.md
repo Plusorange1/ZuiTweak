@@ -39,6 +39,7 @@ Android 15 · vendor patch 2025-02-05 · region ROW
 | Dolby for built-in speakers | Unfuck | — | ✅ | ✅ | ✅ | new target `DolbyAtmosUtils` |
 | Disable app force-stop | Unfuck | — | ✅ | ✅ | ✅ | |
 | Disable taskbar | Unfuck | — | ✅ | ✅ | ✅ | re-enabled, `inflateLayout` |
+| Hide keyboard/IME buttons | Unfuck | Gboard | ✅ | ✅ | ✅ | IME nav row; scope must include `com.google.android.inputmethod.latin` |
 | Disable virus scan | Unfuck | PRC | ✅ | ✅ | ⚠️ | `com.zui.safecenter` absent on ROW |
 | AOSP package installer | Unfuck | PRC | ✅ | ✅ | ⚠️ | ROW uses `com.google.android.packageinstaller` |
 | AOSP permission controller | Unfuck | PRC | ✅ | ✅ | ⚠️ | ROW uses `com.google.android.permissioncontroller` |

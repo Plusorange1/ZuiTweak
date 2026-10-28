@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Android](https://img.shields.io/badge/Android-12%2B-3DDC84?logo=android&logoColor=white)](#requirements)
 [![ZUI](https://img.shields.io/badge/ZUI-15%20%7C%2016%20%7C%2017-006B5F)](#compatibility)
-[![Release](https://img.shields.io/badge/release-v1.0.1-006B5F)](../../releases)
+[![Release](https://img.shields.io/badge/release-v1.1.0-006B5F)](../../releases)
 [![Build](https://github.com/Plusorange1/ZuiTweak/actions/workflows/build.yml/badge.svg)](https://github.com/Plusorange1/ZuiTweak/actions/workflows/build.yml)
 
 A Material 3 Xposed module that unlocks hidden features and fixes ZUI annoyances on
@@ -87,6 +87,7 @@ firmware build. See [docs/COMPATIBILITY.md](docs/COMPATIBILITY.md) for the per-h
 |---|:--:|
 | Change notification icon | ✅ |
 | Allow disabling Dolby Atmos for built-in speakers | ✅ |
+| Hide buttons under keyboard (Gboard) | ✅ |
 | Disable app force-stop in recents | ✅ |
 | Disable taskbar display | ✅ (re-enabled in this fork) |
 | Disable virus scan | ⚠️ PRC only |
@@ -146,7 +147,10 @@ Apply Korean translation, remove notification-icon block.
    com.zui.version
    com.zui.game.service
    com.lenovo.penservice
+   com.google.android.inputmethod.latin
    ```
+
+> `com.google.android.inputmethod.latin` is only needed for the *hide buttons under keyboard* tweak.
 
 5. **Reboot** once so the hooks are injected into the system processes.
 

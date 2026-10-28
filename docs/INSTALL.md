@@ -34,7 +34,7 @@ Classic LSPosed is archived and will not run on Android 15.
 
 ```bash
 # over ADB
-adb install -r ZuiTweak-1.0.1.apk
+adb install -r ZuiTweak-1.1.0.apk
 ```
 
 or copy the APK to the tablet and open it.
@@ -44,7 +44,7 @@ signing key and Android will refuse the update:
 
 ```bash
 adb uninstall kr.stonecold.zuitweak
-adb install ZuiTweak-1.0.1.apk
+adb install ZuiTweak-1.1.0.apk
 ```
 
 ## 4. Enable and scope the module
@@ -66,7 +66,10 @@ com.zui.safecenter
 com.zui.version
 com.zui.game.service
 com.lenovo.penservice
+com.google.android.inputmethod.latin
 ```
+
+> `com.google.android.inputmethod.latin` is only needed for the hide-keyboard-buttons tweak.
 
 From a terminal (root) the same thing can be done with the Vector CLI:
 
@@ -76,7 +79,8 @@ su -c "/system/bin/sh $V modules enable kr.stonecold.zuitweak"
 su -c "/system/bin/sh $V scope set kr.stonecold.zuitweak \
   com.android.settings/0 com.android.systemui/0 com.zui.launcher/0 \
   com.zui.desktoplauncher/0 com.zui.camera/0 com.zui.version/0 \
-  com.zui.game.service/0 com.lenovo.penservice/0"
+  com.zui.game.service/0 com.lenovo.penservice/0 \
+  com.google.android.inputmethod.latin/0"
 ```
 
 ## 5. Reboot

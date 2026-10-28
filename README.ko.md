@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Android](https://img.shields.io/badge/Android-12%2B-3DDC84?logo=android&logoColor=white)](#요구-사항)
 [![ZUI](https://img.shields.io/badge/ZUI-15%20%7C%2016%20%7C%2017-006B5F)](#호환성)
-[![Release](https://img.shields.io/badge/release-v1.0.1-006B5F)](../../releases)
+[![Release](https://img.shields.io/badge/release-v1.1.0-006B5F)](../../releases)
 [![Build](https://github.com/Plusorange1/ZuiTweak/actions/workflows/build.yml/badge.svg)](https://github.com/Plusorange1/ZuiTweak/actions/workflows/build.yml)
 
 Lenovo Legion Tab의 ZUI에서 숨겨진 기능을 열고 불편한 부분을 고치는 Material 3
@@ -73,6 +73,7 @@ Xposed 모듈입니다.
 |---|:--:|
 | 알림 아이콘 변경 | ✅ |
 | 내장 스피커 Dolby Atmos 비활성화 | ✅ |
+| 키보드 하단 버튼 숨기기 (Gboard) | ✅ |
 | 앱 강제 종료 비활성화 | ✅ |
 | 작업 표시줄 비활성화 | ✅ (이 포크에서 재활성화) |
 | 바이러스 검사 비활성화 | ⚠️ PRC 전용 |
@@ -121,7 +122,10 @@ Xposed 모듈입니다.
    com.zui.version
    com.zui.game.service
    com.lenovo.penservice
+   com.google.android.inputmethod.latin
    ```
+
+> `com.google.android.inputmethod.latin`는 키보드 하단 버튼 숨기기 트윅에만 필요합니다.
 
 5. 한 번 **재부팅**합니다 (시스템 프로세스에 훅이 주입되어야 합니다).
 6. ZuiTweak을 열어 필요한 트윅을 켭니다.

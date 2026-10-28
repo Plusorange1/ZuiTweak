@@ -59,6 +59,7 @@ object HookManager {
         registerHook(HookDisableTaskbar()) // ZUI 17 fork: re-enabled
         registerHook(HookChangeNotificationIcon())
         registerHook(HookAllowDisableDolbyAtmosForBuiltinSpeakers())
+        registerHook(HookHideImeNavBar())
         registerHook(HookDisableAppSwitchForceStop())
         registerHook(HookDisableVirusScan())
         registerHook(HookChangePackageInstaller())

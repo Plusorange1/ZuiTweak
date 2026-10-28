@@ -4,6 +4,17 @@ All notable changes to this fork. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versions use
 [SemVer](https://semver.org/).
 
+## [1.1.0] — 2026-10-28
+
+### Added
+
+- **Hide buttons under keyboard (Gboard)** — removes the *hide keyboard* chevron and the
+  *input method* switcher from the IME navigation row. The row is drawn by
+  `InputMethodService` (`android.inputmethodservice.navigationbar.NavigationBarFrame`), so
+  the module must be scoped to `com.google.android.inputmethod.latin`.
+- This is the first tweak that also applies to a non-system package; add Gboard to the
+  module scope to use it.
+
 ## [1.0.1] — 2026-10-27
 
 ### Changed
@@ -53,3 +64,5 @@ First release of the fork, based on upstream **v3.4.0** (ZUI 15/16).
 [1.0]: ../../releases/tag/v1.0
 
 [1.0.1]: ../../releases/tag/v1.0.1
+
+[1.1.0]: ../../releases/tag/v1.1.0
